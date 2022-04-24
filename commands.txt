@@ -1,0 +1,28 @@
+docker system prune
+docker system prune -a
+
+Stop the container(s) using the following command:
+docker-compose down
+
+Delete all containers using the following command:
+docker rm -f $(docker ps -a -q)
+
+Delete all volumes using the following command:
+docker volume rm $(docker volume ls -q)
+
+Restart the containers using the following command:
+docker-compose up -d
+
+
+docker-compose up -d --build
+
+
+
+docker-compose down
+docker system prune
+docker system prune -a
+docker-compose down
+docker ps -a -q
+docker volume ls -q
+docker-compose build
+docker-compose up -d --build
