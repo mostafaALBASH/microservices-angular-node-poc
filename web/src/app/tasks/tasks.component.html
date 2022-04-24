@@ -1,0 +1,109 @@
+<form class="form" (submit)="add(taskTitle2.value); taskTitle2.value=''">
+  <div class="form-group">
+     <input #taskTitle2 class="form-control" placeholder="TODO (DB s)" />
+  </div>
+  <input type="submit" value="Add" class="btn btn-success btn-lg btn-block" />
+</form>
+<!-- *ngIf="emailField ===true"  -->
+<div #screen >
+  <form class="form" (submit)="add2(taskTitle.value, $event); taskTitle.value=val">
+     <div class="form-group">
+        <hr>
+        <input type="email" #taskTitle class="form-control"  placeholder="example@domain.com" style="display: inline; width: 79%; margin: 1% 1% 0% 0%;">
+        <input type="submit" value="Record List" class="btn btn-alert" style="margin: -0.8% 0% 0% 0%;" />
+        <div style="margin: 2% 1% 0% 0%;" class="card card-body bg-light text-center" *ngIf="openMsg ===true">
+           <span class="small">List was recorded successfully<button type="button" class="close" aria-label="Close">
+           <span aria-hidden="true" (click)="openMsg = false">&times;</span>
+           </button></span>
+        </div>
+     </div>
+  </form>
+  <table class="table"  >
+     <!-- <button class="btn" title="send" (click)="send()">Send</button> -->
+     <tr *ngFor="let task of tasks">
+        <td class="text-left ">
+           <a (click)="edit(task)">
+           <span *ngIf="task!==editTask">{{task.title}}</span>
+           <input *ngIf="task===editTask" [(ngModel)]="task.title" (blur)="update()" (keyup.enter)="update()">
+           </a>
+        </td>
+        <td class="text-right">
+           <button class="btn btn-danger" title="delete task" (click)="delete(task)">Delete</button>
+        </td>
+     </tr>
+  </table>
+</div>
+<!-- <div class="card card-body bg-light text-center">
+  <span class="small">* click on item to edit and just click anywhere to update</span>
+  </div> -->
+<!-- <div class="btn btn-primary" (click)="downloadImage()">DL</div> -->
+<!-- <div class="card card-body bg-light text-center">
+  <span class="small">* click on item to edit and just click anywhere to update</span>
+  </div> -->
+<div id="download">
+  <img #canvas  style="display:none;">
+  <a #downloadLink></a>
+</div>
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+  <!-- <div class="container-fluid text-center text-md-left">
+     <div class="row">
+     
+       <div class="col-md-6 mt-md-0 mt-3">
+     
+         <h5 class="text-uppercase">Footer Content</h5>
+         <p>Here you can use rows and columns to organize your footer content.</p>
+     
+       </div>
+     
+       <hr class="clearfix w-100 d-md-none pb-3">
+     
+       <div class="col-md-3 mb-md-0 mb-3">
+     
+         <h5 class="text-uppercase">Links</h5>
+     
+         <ul class="list-unstyled">
+           <li>
+             <a href="#!">Link 1</a>
+           </li>
+           <li>
+             <a href="#!">Link 2</a>
+           </li>
+           <li>
+             <a href="#!">Link 3</a>
+           </li>
+           <li>
+             <a href="#!">Link 4</a>
+           </li>
+         </ul>
+     
+       </div>
+     
+       <div class="col-md-3 mb-md-0 mb-3">
+     
+         <h5 class="text-uppercase">Links</h5>
+     
+         <ul class="list-unstyled">
+           <li>
+             <a href="#!">Link 1</a>
+           </li>
+           <li>
+             <a href="#!">Link 2</a>
+           </li>
+           <li>
+             <a href="#!">Link 3</a>
+           </li>
+           <li>
+             <a href="#!">Link 4</a>
+           </li>
+         </ul>
+     
+       </div>
+     
+     </div>
+     
+     </div> -->
+  <div class="footer-copyright text-center py-3">© Copyright:
+     <a href="https://github.com/mostafaALBASH?tab=repositories"> Mostafa Elbesh</a>
+  </div>
+</footer>
